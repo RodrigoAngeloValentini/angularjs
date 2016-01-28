@@ -6,7 +6,7 @@
 <body>
 
 <div ng-controller="CtrlApp">
-    <input type="text" ng-model="nome">
+    <input type="text" ng-model="nome" ng-change="loggar()">
     <h1>{{nome}} - {{idade}}, {{cidade}}</h1>
 </div>
 
@@ -17,9 +17,11 @@
         $scope.nome = "Rodrigo";
         $scope.cidade = "Chapecó";
         $scope.idade = 21;
-        $scope.$watch('nome', function(){
-           console.log($scope.nome);
-        });
+
+        $scope.loggar = function(){
+            console.log($scope.nome);
+        }
+
     };
 
     myApp.controller('CtrlApp', CtrlApp);
